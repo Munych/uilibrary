@@ -4,7 +4,8 @@ import Grid from './UI/Grid/Grid';
 
 const columns = [{
     text: 'ID',
-    dataIndex: 'id'
+    dataIndex: 'id',
+    width: '20px'
 }, {
     text: 'Name',
     dataIndex: 'name'
@@ -37,9 +38,11 @@ const columns = [{
         columns: [{
             text: 'Lat',
             dataIndex: 'lat',
+            width: '60px'
         }, {
             text: 'Lng',
-            dataIndex: 'lng'
+            dataIndex: 'lng',
+            width: '60px'
         }]
     }]
 }, {
@@ -78,7 +81,24 @@ const App = () => {
     }
 
     return (
-        <div style={{position: 'relative', height: '100%', width: '100%'}}>
+        <div style={{height: '100%', width: '100%'}}>
+            <Grid
+                columns={columns}
+                data={data}
+                deleteHandler={deleteHandler}
+                width={"100%"}
+                height={350}
+            />
+            <Grid
+                columns={columns}
+                data={data}
+                deleteHandler={deleteHandler}
+            />
+            <Grid
+                columns={columns}
+                data={data}
+                deleteHandler={deleteHandler}
+            />
             <Grid
                 columns={columns}
                 data={data}

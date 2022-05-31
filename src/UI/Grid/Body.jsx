@@ -8,7 +8,7 @@ const Body = ({columns, data}) => {
             <div className='body-row'>
                 {columns.map(column =>
                     column.columns ? Utils.getChildValues(column.columns, value[column.dataIndex]) : 
-                    <div className='header-cell'>{value[column.dataIndex]}</div>    
+                    <div className='body-cell' style={{minWidth: column.width || '100px', maxWidth: column.width || '100px'}}>{value[column.dataIndex]}</div>    
                 )}
             </div>
         )
