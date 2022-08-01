@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Grid from './UI/Grid/Grid';
 
-const columns = [{
+const columns: any[] = [{
     text: 'ID',
     dataIndex: 'id',
     width: '20px'
@@ -76,7 +76,7 @@ const App = () => {
             .then(result => {setData(result)});
     }, []);
 
-    const deleteHandler = (e) => {
+    const deleteHandler = (e: any): void => {
         console.log(e);
     }
 
@@ -86,23 +86,8 @@ const App = () => {
                 columns={columns}
                 data={data}
                 deleteHandler={deleteHandler}
-                width={"100%"}
-                height={350}
-            />
-            <Grid
-                columns={columns}
-                data={data}
-                deleteHandler={deleteHandler}
-            />
-            <Grid
-                columns={columns}
-                data={data}
-                deleteHandler={deleteHandler}
-            />
-            <Grid
-                columns={columns}
-                data={data}
-                deleteHandler={deleteHandler}
+                // width={1000}
+                // height={350}
             />
         </div>
     )

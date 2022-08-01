@@ -1,7 +1,7 @@
 import React from "react";
 
 export class Utils {
-    static depthTree = (columns, initialValue) => {
+    static depthTree = (columns: any[], initialValue: number) => {
         return columns.reduce((previousValue, column) => {
             if(column.columns) {
                 return this.depthTree(column.columns, previousValue) + 1;
