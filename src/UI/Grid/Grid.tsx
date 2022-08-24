@@ -7,8 +7,8 @@ interface GridProps {
     columns: any[];
     data: any;
     deleteHandler: (e) => void;
-    width ?: number;
-    height ?: number;
+    width ?: number | string;
+    height ?: number | string;
 }
 
 const Grid = (props: GridProps) => {
