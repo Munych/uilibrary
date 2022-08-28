@@ -13,11 +13,20 @@ export class Utils {
     }
 
     static createColumnElement = (column) => {
+        if(column.hidden) {
+            return;
+        }
+
         if(column.columns) {
             return this.createMultiHeader(column);
         }
         
-        return <div className='header-cell' style={{minWidth: column.width || '100px', maxWidth: column.width || '100px'}}>{column.text}</div>
+        return <div 
+            className='header-cell' 
+            style={{minWidth: column.width || '100px', maxWidth: column.width || '100px'}}
+        >
+            {column.text}
+        </div>
     }
 
     static createMultiHeader = (column) => {
@@ -36,9 +45,19 @@ export class Utils {
     }
 
     static getChildValues = (columns, value) => {
-        return columns.map(col => 
-            col.columns ? this.getChildValues(col.columns, value[col.dataIndex]) :
-            <div className='body-cell' style={{minWidth: col.width || '100px', maxWidth: col.width || '100px'}}>{value[col.dataIndex]}</div>    
-        );
+        return columns.map(col => {
+            if(col.hidden) {
+                return;
+            }
+            
+            return col.columns ? 
+            this.getChildValues(col.columns, value[col.dataIndex]) :
+            <div 
+                className='body-cell' 
+                style={{minWidth: col.width || '100px', maxWidth: col.width || '100px'}}
+            >
+                {value[col.dataIndex]}
+            </div>
+        });
     }
 }

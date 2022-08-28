@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Grid from './UI/Grid/Grid';
+import { Column } from './UI/Grid/types/Column';
 
-const columns: any[] = [{
+const columns: Column[] = [{
     text: 'ID',
     dataIndex: 'id',
     width: '20px'
@@ -18,7 +19,7 @@ const columns: any[] = [{
 }, {
     text: 'Address',
     dataIndex: 'address',
-
+    
     columns: [{
         text: 'Street',
         dataIndex: 'street'
@@ -86,8 +87,8 @@ const App = () => {
                 columns={columns}
                 data={data}
                 deleteHandler={deleteHandler}
-                // width={1000}
-                // height={350}
+                width={'100%'}
+                height={'100%'}
             />
         </div>
     )
