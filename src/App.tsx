@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Button } from './UI/Button/Button';
 import Grid from './UI/Grid/Grid';
 import { Column } from './UI/Grid/types/Column';
 
@@ -83,13 +84,39 @@ const App = () => {
 
     return (
         <div style={{height: '100%', width: '100%'}}>
-            <Grid
-                columns={columns}
-                data={data}
-                deleteHandler={deleteHandler}
-                width={'100%'}
-                height={'100%'}
-            />
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                    width={1000}
+                    height={300}
+                />
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                    width={1000}
+                    height={300}
+                />
+            </div>
+            <div style={{display: 'flex'}}>
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                    width={1000}
+                    height={300}
+                />
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                    width={1000}
+                    height={300}
+                />
+            </div>
+            <Button text="Button"></Button>
         </div>
     )
 }
