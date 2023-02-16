@@ -1,26 +1,27 @@
 import React from 'react';
 import './Button.scss';
 
-enum Color {
-    blue = '#3182ce'
+enum Types {
+    'primary' = 'primary',
+    'default' = 'default',
+    'dashed' = 'dashed',
+    'text' = 'text',
+    'link' = 'link'   
 }
 
 interface ButtonProps {
-    text: string | number;
-    color?: string;
+    type?: string;
+    children?: any;
 }
 
 const Button = (props: ButtonProps) => {
-    const style = {
-        // backgroundColor: Color[props.color] || '#fff',
-       
-    };
+    console.log(props);
 
     return (
-        <button className='button-blue' style={style} >
-            {props.text}
+        <button className={`${Types[props.type] || 'default'}-button`}>
+            {props.children}
         </button>
-    )
+    ) 
 }
 
 export { Button };

@@ -1,22 +1,26 @@
-.button-blue {
-    background-color: #3182ce;
+$primary-color: rgb(22,119,255);
+$default-color: #fff;
+
+.primary-button {
+    background-color: $primary-color;
     color: #fff;
-    min-width: 2.5rem;
-    height: 2.5rem;
-    border-style: solid;
-    border-width: 0;
+    padding: 4px 16px;
     border-radius: 5px;
-    font-size: 1rem;
-    padding: 0 16px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border-width: 0px;
+} 
+
+.primary-button:hover {
+    opacity: 0.9;
     cursor: pointer;
-    transition-duration: 0.4s;
 }
 
-.button-blue:hover {
-    background-color: #1d69b0;
+.primary-button:active {
+    background-color: darken($primary-color, 20);
 }
 
-.button-blue:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px #3182ce;
+.primary-button:focus-within {
+    animation-duration: 3s;
+    animation-name: bordershadow;
 }
