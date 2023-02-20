@@ -23,7 +23,7 @@ const Button = (props: ButtonProps) => {
         <button onClick={props.onClick} style={props.style} className={`${Types[props.type] || 'default'}-button`}>
             {props.children}
         </button>
-    ) 
+    )
 }
  
 export { Button };

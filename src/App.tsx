@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from './UI/Button/Button';
 import Grid from './UI/Grid/Grid';
 import { Column } from './UI/Grid/types/Column';
+import { Modal } from './UI/Modal/Modal';
 
 const columns: Column[] = [{
     text: 'ID',
@@ -115,10 +116,13 @@ const App = () => {
                 />
             </div> */}
             <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
-            <Button type='default' style={{marginRight: 10}}>Default button</Button>
-            <Button type='dashed' style={{marginRight: 10}}>Dashed button</Button>
-            <Button type='text' style={{marginRight: 10}}>Text button</Button>
-            <Button type='link' style={{marginRight: 10}}>Link button</Button>
+            <Modal 
+                width={400}
+                height={300}
+            >
+                <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
+                <div>123</div>
+            </Modal>
         </div>
     )
 }
