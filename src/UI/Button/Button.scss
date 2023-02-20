@@ -1,8 +1,9 @@
-$primary-color: rgb(22,119,255);
-$default-color: #fff;
+$primary-button-color: rgb(22,119,255);
+$default-button-color: #fff;
+$text-button-color: #bdbdbd;
 
 .primary-button {
-    background-color: $primary-color;
+    background-color: $primary-button-color;
     color: #fff;
     padding: 4px 16px;
     border-radius: 5px;
@@ -17,10 +18,94 @@ $default-color: #fff;
 }
 
 .primary-button:active {
-    background-color: darken($primary-color, 20);
+    background-color: darken($primary-button-color, 20);
 }
 
-.primary-button:focus-within {
-    animation-duration: 3s;
-    animation-name: bordershadow;
+.default-button {
+    background-color: $default-button-color;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bdbdbd;
+}
+
+.default-button:hover {
+    cursor: pointer;
+    border-color: $primary-button-color;
+    color: $primary-button-color;
+}
+
+.default-button:active {
+    cursor: pointer;
+    color: darken($primary-button-color, 20);
+    border-color: darken($primary-button-color, 20);
+}
+
+.dashed-button {
+    background-color: $default-button-color;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #bdbdbd;
+}
+
+.dashed-button:hover {
+    cursor: pointer;
+    border-color: $primary-button-color;
+    color: $primary-button-color;
+}
+
+.dashed-button:active {
+    cursor: pointer;
+    color: darken($primary-button-color, 20);
+    border-color: darken($primary-button-color, 20);
+}
+
+.text-button {
+    background-color: $default-button-color;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+}
+
+.text-button:hover {
+    cursor: pointer;
+    background-color: lighten($text-button-color, 20);
+}
+
+.text-button:active {
+    cursor: pointer;
+    background-color: $text-button-color;
+}
+
+.link-button {
+    background-color: $default-button-color;
+    color: $primary-button-color;
+    padding: 4px 16px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+}
+
+.link-button:hover {
+    cursor: pointer;
+    color: lighten($primary-button-color, 20);
+}
+
+.link-button:active {
+    cursor: pointer;
+    color: darken($primary-button-color, 20);
 }

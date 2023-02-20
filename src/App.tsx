@@ -82,6 +82,11 @@ const App = () => {
         console.log(e);
     }
 
+    const onClickHandler = (e: MouseEvent): void => {
+        console.log('button clicked');
+        console.log(e);
+    }
+
     return (
         <div style={{height: '100%', width: '100%'}}>
             {/* <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -109,7 +114,11 @@ const App = () => {
                     height={300}
                 />
             </div> */}
-            <Button type='primary'>Primary button</Button>
+            <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
+            <Button type='default' style={{marginRight: 10}}>Default button</Button>
+            <Button type='dashed' style={{marginRight: 10}}>Dashed button</Button>
+            <Button type='text' style={{marginRight: 10}}>Text button</Button>
+            <Button type='link' style={{marginRight: 10}}>Link button</Button>
         </div>
     )
 }
