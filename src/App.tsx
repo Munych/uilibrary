@@ -72,6 +72,7 @@ const columns: Column[] = [{
 
 const App = () => {
     const [data, setData] = useState([]);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -84,8 +85,7 @@ const App = () => {
     }
 
     const onClickHandler = (e: MouseEvent): void => {
-        console.log('button clicked');
-        console.log(e);
+        setOpen(!open);
     }
 
     return (
@@ -117,11 +117,24 @@ const App = () => {
             </div> */}
             <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
             <Modal 
-                width={400}
-                height={300}
+                title={'Users'}
+                open={open}
+                // style={{
+                //     width: 800,
+                //     height: 600
+                // }}
+                onOk={onClickHandler}
+                onCancel={onClickHandler}
             >
-                <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
-                <div>123</div>
+                {/* <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
+                <div>123</div> */}
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                    // width={1000}
+                    // height={300}
+                />
             </Modal>
         </div>
     )

@@ -1,4 +1,12 @@
-$modal-background-color: #919090;
+$modal-background-color: #3b3a3a;
+
+.modal-visible {
+    visibility: visible;
+}
+
+.modal-hidden {
+    visibility: hidden;
+}
 
 .modal-mask {
     position: absolute;
@@ -6,7 +14,7 @@ $modal-background-color: #919090;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba($modal-background-color, 0.8);
+    background-color: rgba($modal-background-color, 0.3);
 }
 
 .modal-wrap-container {
@@ -19,8 +27,44 @@ $modal-background-color: #919090;
 }
 
 .modal-window {
-    background-color: red;
-    width: 200px;
-    height: 200px;
-    // z-index: 1;
+    background-color: #fff;
+    width: 'auto';
+    height: 'auto';
+    border-color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal-window-header {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: lighten($modal-background-color, 40);
+    padding: 10px;
+}
+
+.modal-window-content {
+    flex-grow: 1;
+    padding: 5px;
+    overflow: auto;
+}
+
+.modal-window-bottom {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: lighten($modal-background-color, 40);
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    & > button{
+        margin-right: 5px;
+    }
+
+    & > :last-child {
+        margin-right: 0px;
+    }
 }
