@@ -72,7 +72,7 @@ const columns: Column[] = [{
 
 const App = () => {
     const [data, setData] = useState([]);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -119,21 +119,13 @@ const App = () => {
             <Modal 
                 title={'Users'}
                 open={open}
-                // style={{
-                //     width: 800,
-                //     height: 600
-                // }}
                 onOk={onClickHandler}
                 onCancel={onClickHandler}
             >
-                {/* <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
-                <div>123</div> */}
                 <Grid
                     columns={columns}
                     data={data}
                     deleteHandler={deleteHandler}
-                    // width={1000}
-                    // height={300}
                 />
             </Modal>
         </div>

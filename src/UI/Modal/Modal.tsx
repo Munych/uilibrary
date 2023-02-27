@@ -7,15 +7,21 @@ interface ModalProps {
     title?: string;
     style?: object;
     children?: any;
+    mask?: boolean;
     open?: boolean;
     onOk?: (event: MouseEvent) => void;
     onCancel?: (event: MouseEvent) => void;
 }
 
+const defaultProps: ModalProps = {
+    mask: true,
+    open: false
+}
+
 const Modal = (props: ModalProps) => {
     return(
-        <div className={`modal-mask ${props.open ? 'modal-visible' : 'modal-hidden'}`}>
-            <div className='modal-wrap-container'>
+        <React.Fragment>
+            <div className={`modal-wrap-container ${props.open ? 'modal-visible' : 'modal-hidden'}`}>
                 <div className='modal-window' style={props.style}>
                     <div className='modal-window-header'>
                         <div>{props.title}</div>
@@ -29,8 +35,11 @@ const Modal = (props: ModalProps) => {
                     </div>
                 </div>
             </div>    
-        </div>
+            <div className={`modal-mask ${props.open && props.mask ? 'modal-visible' : 'modal-hidden'}`}></div>
+        </React.Fragment>
     );
 }
+
+Modal.defaultProps = defaultProps;
 
 export { Modal };
