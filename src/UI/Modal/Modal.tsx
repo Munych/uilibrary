@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import './Modal.scss';
 import { Button } from '../Button/Button';
-
 
 interface ModalProps {
     title?: string;
@@ -9,8 +8,8 @@ interface ModalProps {
     children?: any;
     mask?: boolean;
     open?: boolean;
-    onOk?: (event: MouseEvent) => void;
-    onCancel?: (event: MouseEvent) => void;
+    onOk?: (event: MouseEvent<HTMLButtonElement>) => void;
+    onCancel?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const defaultProps: ModalProps = {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from './UI/Button/Button';
 import Grid from './UI/Grid/Grid';
@@ -84,7 +84,7 @@ const App = () => {
         console.log(e);
     }
 
-    const onClickHandler = (e: MouseEvent): void => {
+    const onClickHandler = (e: MouseEvent<HTMLButtonElement>): void => {
         setOpen(!open);
     }
 
