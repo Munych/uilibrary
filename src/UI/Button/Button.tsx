@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import './Button.scss';
 
 enum Types {
@@ -13,7 +13,7 @@ interface ButtonProps {
     type?: string;
     children?: any;
     style?: object;
-    onClick?: (event: MouseEvent) => void;
+    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = (props: ButtonProps) => {
@@ -23,7 +23,7 @@ const Button = (props: ButtonProps) => {
         <button onClick={props.onClick} style={props.style} className={`${Types[props.type] || 'default'}-button`}>
             {props.children}
         </button>
-    ) 
+    )
 }
  
 export { Button };

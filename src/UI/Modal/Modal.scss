@@ -1,0 +1,81 @@
+$modal-mask-background-color: #3b3a3a;
+$modal-border-color: #9c9a9a;
+
+.modal-visible {
+    visibility: visible;
+}
+
+.modal-hidden {
+    visibility: hidden;
+}
+
+.modal-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($modal-mask-background-color, 0.3);
+}
+
+.modal-wrap-container {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.modal-window {
+    position: relative;
+    pointer-events: auto;
+    background-color: #fff;
+    width: 'auto';
+    height: 'auto';
+    border-color: $modal-border-color;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modal-window-header {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $modal-border-color;
+    padding: 10px;
+}
+
+.modal-window-content {
+    flex-grow: 1;
+    padding: 5px;
+    overflow: auto;
+}
+
+.modal-window-bottom {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $modal-border-color;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+
+    & > button{
+        margin-right: 5px;
+    }
+
+    & > :last-child {
+        margin-right: 0px;
+    }
+}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from './UI/Button/Button';
 import Grid from './UI/Grid/Grid';
 import { Column } from './UI/Grid/types/Column';
+import { Modal } from './UI/Modal/Modal';
 
 const columns: Column[] = [{
     text: 'ID',
@@ -71,6 +72,7 @@ const columns: Column[] = [{
 
 const App = () => {
     const [data, setData] = useState([]);
+    const [open, setOpen] = useState<boolean>(false);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -82,9 +84,8 @@ const App = () => {
         console.log(e);
     }
 
-    const onClickHandler = (e: MouseEvent): void => {
-        console.log('button clicked');
-        console.log(e);
+    const onClickHandler = (e: MouseEvent<HTMLButtonElement>): void => {
+        setOpen(!open);
     }
 
     return (
@@ -115,10 +116,18 @@ const App = () => {
                 />
             </div> */}
             <Button type='primary' style={{marginRight: 10}} onClick={onClickHandler}>Primary button</Button>
-            <Button type='default' style={{marginRight: 10}}>Default button</Button>
-            <Button type='dashed' style={{marginRight: 10}}>Dashed button</Button>
-            <Button type='text' style={{marginRight: 10}}>Text button</Button>
-            <Button type='link' style={{marginRight: 10}}>Link button</Button>
+            <Modal 
+                title={'Users'}
+                open={open}
+                onOk={onClickHandler}
+                onCancel={onClickHandler}
+            >
+                <Grid
+                    columns={columns}
+                    data={data}
+                    deleteHandler={deleteHandler}
+                />
+            </Modal>
         </div>
     )
 }
