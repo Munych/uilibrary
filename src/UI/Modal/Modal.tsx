@@ -1,20 +1,21 @@
-import React, { MouseEvent } from 'react';
+import React, { KeyboardEvent, MouseEvent } from 'react';
 import './Modal.scss';
 import { Button } from '../Button/Button';
 
 interface ModalProps {
     title?: string;
     style?: object;
-    children?: any;
+    children?: React.ReactNode;
     mask?: boolean;
     open?: boolean;
     onOk?: (event: MouseEvent<HTMLButtonElement>) => void;
     onCancel?: (event: MouseEvent<HTMLButtonElement>) => void;
+    footer?: React.ReactNode
 }
 
 const defaultProps: ModalProps = {
     mask: true,
-    open: false
+    open: false,
 }
 
 const Modal = (props: ModalProps) => {
@@ -29,8 +30,12 @@ const Modal = (props: ModalProps) => {
                         {props.children}
                     </div>
                     <div className='modal-window-bottom'>
-                        <Button onClick={props.onOk}>Ok</Button>
-                        <Button onClick={props.onCancel} type="primary">Cancel</Button>
+                        {props.footer ||
+                            (<React.Fragment>
+                                <Button onClick={props.onOk}>Ok</Button>
+                                <Button onClick={props.onCancel} type="primary">Cancel</Button> 
+                            </React.Fragment>)
+                        }
                     </div>
                 </div>
             </div>    

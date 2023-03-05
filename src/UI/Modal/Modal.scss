@@ -29,6 +29,10 @@ $modal-border-color: #9c9a9a;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .modal-window {
